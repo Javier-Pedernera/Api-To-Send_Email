@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto desde el sitio web</title>
+  <style>
+    /* Estilos CSS para el correo electrónico */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      font-weight: bold;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+      height: auto;
+    }
+    /* Estilos CSS específicos para dispositivos móviles */
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://res.cloudinary.com/dbwmesg3e/image/upload/v1713024892/GescotecPage/LogoNuevo_gescotec-removebg-preview_xhboax.png" alt="Logo de la empresa">
+    <h1>Nuevo formulario de contacto</h1>
+    <hr>
+    <p><span class="highlight">Nombre:</span> {{nombre}}</p>
+    <p><span class="highlight">Apellidos:</span> {{apellidos}}</p>
+    <p><span class="highlight">Email:</span> {{email}}</p>
+    <p><span class="highlight">Teléfono Móvil:</span> {{movil}}</p>
+    <p><span class="highlight">País:</span> {{pais}}</p>
+    <hr>
+    <p><span class="highlight">Empresa:</span> {{empresa}}</p>
+    <p><span class="highlight">Empleados:</span> {{empleados}}</p>
+    <p><span class="highlight">Producto/Servicio de interés:</span> {{productoServicio}}</p>
+    <p><span class="highlight">Descripción:</span> {{descripcion}}</p>
+    <p><span class="highlight">Consentimiento a recibir publicidad:</span> {{consentimiento}}</p>
+  </div>
+</body>
+</html>
