@@ -18,7 +18,7 @@ const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 app.post('/send-email', async (req, res) => {
   const { nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados } = req.body;
 
- console.log(nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados);
+
   let html = emailTemplate
     .replace('{{nombre}}', nombre)
     .replace('{{apellidos}}', apellidos)
@@ -39,7 +39,6 @@ app.post('/send-email', async (req, res) => {
         html: html,
         replyTo: email
       });
-console.log(data);
     if (error) {
         console.log(error);
       res.status(400).json({ error: 'Error al enviar el correo electrónico' });
