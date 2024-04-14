@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const { Resend } = require('resend');
 const fs = require('fs');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -16,14 +17,15 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 app.get("/", (req, res) => { res.send("Express on Vercel"); });
-
-const templatePath = 'template.html';
+let templatePath = path.join(process.cwd(), 'users.json');
+// const templatePath = 'template.html';
 console.log(templatePath);
 // const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 app.post('/send-email', async (req, res) => {
   const { nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados } = req.body;
 
   try {
+    
     const templateHtml = await fs.promises.readFile(templatePath, 'utf8');
     let html = templateHtml.replace('{{nombre}}', nombre)
       .replace('{{apellidos}}', apellidos)
