@@ -29,7 +29,7 @@ app.post('/send-email', async (req, res) => {
       res.status(500).json({ error: 'Error interno del servidor' });
       return;
     }
-
+    console.log(data);
     let html = data.replace('{{nombre}}', nombre)
       .replace('{{apellidos}}', apellidos)
       .replace('{{empresa}}', empresa)
