@@ -19,7 +19,7 @@ app.get("/", (req, res) => { res.send("Express on Vercel"); });
 
 app.post('/send-email', async (req, res) => {
   const { nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados } = req.body;
-const templatePath = 'template.html';
+const templatePath = './template.html';
 const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 
   let html = emailTemplate
