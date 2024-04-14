@@ -13,8 +13,8 @@ app.use(cors()); // Usa el middleware CORS
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const templatePath = 'template.html';
-const emailTemplate = fs.readFileSync(templatePath, 'utf8');
+// const templatePath = 'template.html';
+// const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 
 app.get("/", (req, res) => { res.send("Express on Vercel"); });
 
