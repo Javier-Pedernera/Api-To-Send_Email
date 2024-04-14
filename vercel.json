@@ -6,7 +6,7 @@
       "use": "@vercel/node",
       "config": {
         "node": {
-          "fs": "empty"
+          "fs": "all"
         }
       }
     }
