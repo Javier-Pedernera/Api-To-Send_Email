@@ -17,7 +17,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 app.get("/", (req, res) => { res.send("Express on Vercel"); });
-let templatePath = path.join(process.cwd(), 'users.json');
+let templatePath = path.join(process.cwd(), 'template.html');
 // const templatePath = 'template.html';
 console.log(templatePath);
 // const emailTemplate = fs.readFileSync(templatePath, 'utf8');
