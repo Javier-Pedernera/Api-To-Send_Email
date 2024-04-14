@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { Resend } = require('resend');
 const fs = require('fs');
-const cors = require('cors'); // Importa el middleware CORS
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors()); // Usa el middleware CORS
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const templatePath = 'Email-Template.html';
+const templatePath = 'template.html';
 const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 
 app.get("/", (req, res) => { res.send("Express on Vercel"); });
