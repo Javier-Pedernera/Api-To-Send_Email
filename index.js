@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { Resend } = require('resend');
 const fs = require('fs');
+const cors = require('cors'); // Importa el middleware CORS
 require('dotenv').config();
 
-// Crea una instancia de Express
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+app.use(cors()); // Usa el middleware CORS
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -17,7 +18,6 @@ const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 
 app.post('/send-email', async (req, res) => {
   const { nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados } = req.body;
-
 
   let html = emailTemplate
     .replace('{{nombre}}', nombre)
@@ -40,7 +40,7 @@ app.post('/send-email', async (req, res) => {
         replyTo: email
       });
     if (error) {
-        console.log(error);
+      console.log(error);
       res.status(400).json({ error: 'Error al enviar el correo electrónico' });
     } else {
       res.status(200).json({ message: 'Correo electrónico enviado correctamente' });
@@ -51,7 +51,6 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-// Inicia el servidor en el puerto especificado
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
