@@ -10,17 +10,18 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(cors()); // Usa el middleware CORS
+app.use(cors());
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-
+// const templatePath = 'template.html';
 
 app.get("/", (req, res) => { res.send("Express on Vercel"); });
 let templatePath = path.join(process.cwd(), 'template.html');
-// const templatePath = 'template.html';
-console.log(templatePath);
+//Esto es lo mismo que lo de abajo pero vercel requiere esta configuracion para tomar el archivo
+
 // const emailTemplate = fs.readFileSync(templatePath, 'utf8');
+
 app.post('/send-email', async (req, res) => {
   const { nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados } = req.body;
 
@@ -40,8 +41,8 @@ app.post('/send-email', async (req, res) => {
 
     const { data, error } = await resend.emails.send({
           from: 'Cliente Gescotec <jpedernera@gescotec.cl>',
-          to: ['javierpedernera@gmail.com'],
-          subject: 'Formulario de contacto- Gescotec',
+          to: ['contactanos@gmail.com'],
+          subject: 'Formulario de contacto - Gescotec',
           html: html,
           replyTo: email
         });
