@@ -16,6 +16,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const templatePath = 'Email-Template.html';
 const emailTemplate = fs.readFileSync(templatePath, 'utf8');
 
+app.get("/", (req, res) => { res.send("Express on Vercel"); });
+
 app.post('/send-email', async (req, res) => {
   const { nombre, apellidos, empresa, productoServicio, email, movil, pais, descripcion, consentimiento, empleados } = req.body;
 
