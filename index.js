@@ -41,7 +41,7 @@ app.post('/send-email', async (req, res) => {
 
     const { data, error } = await resend.emails.send({
           from: 'Cliente Gescotec <jpedernera@gescotec.cl>',
-          to: ['contactanos@gescotec.cl'],
+          to: ['contactanos@gescotec.cl', 'mceliz@gescotec.cl','pcharras@gescotec.cl'],
           subject: 'Formulario de contacto - Gescotec',
           html: html,
           replyTo: email
